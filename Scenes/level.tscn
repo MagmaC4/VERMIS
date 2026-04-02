@@ -17,6 +17,10 @@ background_mode = 2
 sky = SubResource("Sky_vonw3")
 tonemap_mode = 2
 glow_enabled = true
+fog_enabled = true
+fog_light_energy = 0.8
+fog_sun_scatter = 0.3
+fog_sky_affect = 0.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_81xng"]
 load_path = "res://.godot/imported/Ground068_1K-JPG_Color.jpg-9dc040749769649edaaa99f4cf4ffc59.s3tc.ctex"
