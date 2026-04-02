@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-const SPEED = 5.0
+var SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 @onready var camera : Camera3D = $Camera3D
 
@@ -28,11 +28,16 @@ func handle_movement(delta):
 	direction.y = 0 # remove y component of camera direction
 	direction = direction.normalized() # normalize direction
 	
+	var sprint_speed = 1
+	if (Input.is_action_pressed("sprint")):
+		sprint_speed = 1.5
+	
 	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+		velocity.x = direction.x * SPEED * sprint_speed
+		velocity.z = direction.z * SPEED * sprint_speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+		
 
 	move_and_slide()
