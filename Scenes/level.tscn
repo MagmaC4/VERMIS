@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://cjac2qou54wgu"]
 
 [ext_resource type="PackedScene" uid="uid://dw3ey2v4jdy1t" path="res://Scenes/player.tscn" id="1_tumq0"]
+[ext_resource type="Script" uid="uid://conq45miu7ofl" path="res://addons/zylann.hterrain/hterrain.gd" id="2_81xng"]
+[ext_resource type="Resource" uid="uid://dwokvmc00fsow" path="res://Data/data.hterrain" id="3_wqkje"]
+[ext_resource type="Script" uid="uid://bb1onxhbra1yc" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_0f350"]
+[ext_resource type="Texture2D" uid="uid://n0hddg44g108" path="res://Assets/Ground068_1K-JPG/Ground068_1K-JPG_Color.jpg" id="5_754fn"]
+[ext_resource type="Texture2D" uid="uid://bi1jybo8giewp" path="res://Assets/Ground068_1K-JPG/Ground068_1K-JPG_NormalDX.jpg" id="6_bvt00"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u52ul"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -15,16 +20,10 @@ sky = SubResource("Sky_vonw3")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_vonw3"]
-size = Vector3(19.845352, 0.001, 20.040344)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_u52ul"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_vonw3"]
-size = Vector2(20, 20)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_oi3di"]
-data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
+[sub_resource type="Resource" id="Resource_8c0lf"]
+script = ExtResource("4_0f350")
+mode = 0
+textures = [[ExtResource("5_754fn")], [ExtResource("6_bvt00")]]
 
 [node name="Level" type="Node3D" unique_id=1201701383]
 
@@ -38,21 +37,22 @@ shadow_enabled = true
 [node name="Player" parent="." unique_id=2030528846 instance=ExtResource("1_tumq0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4211013, 0)
 
-[node name="Floor1" type="StaticBody3D" parent="." unique_id=196320560]
-visible = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor1" unique_id=1401056909]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09992218, 0, -0.09133911)
-shape = SubResource("BoxShape3D_vonw3")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor1" unique_id=1384950839]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-mesh = SubResource("PlaneMesh_u52ul")
-
-[node name="Floor2" type="MeshInstance3D" parent="." unique_id=215630548]
-mesh = SubResource("PlaneMesh_vonw3")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor2" unique_id=1769398400]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor2/StaticBody3D" unique_id=844052663]
-shape = SubResource("ConcavePolygonShape3D_oi3di")
+[node name="HTerrain" type="Node3D" parent="." unique_id=1514882170]
+script = ExtResource("2_81xng")
+centered = true
+_terrain_data = ExtResource("3_wqkje")
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource("Resource_8c0lf")
+render_layers = 1
+cast_shadow = 1
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = null
+shader_params/u_tile_reduction = null
+metadata/_custom_type_script = "uid://conq45miu7ofl"
