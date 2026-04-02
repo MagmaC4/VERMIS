@@ -2,10 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://dw3ey2v4jdy1t" path="res://Scenes/player.tscn" id="1_tumq0"]
 [ext_resource type="Script" uid="uid://conq45miu7ofl" path="res://addons/zylann.hterrain/hterrain.gd" id="2_81xng"]
-[ext_resource type="Resource" uid="uid://dwokvmc00fsow" path="res://Data/data.hterrain" id="3_wqkje"]
+[ext_resource type="Resource" uid="uid://dwokvmc00fsow" path="res://HTerrain/HTerrain_Data/data.hterrain" id="3_wqkje"]
 [ext_resource type="Script" uid="uid://bb1onxhbra1yc" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_0f350"]
-[ext_resource type="Texture2D" uid="uid://n0hddg44g108" path="res://Assets/Ground068_1K-JPG/Ground068_1K-JPG_Color.jpg" id="5_754fn"]
-[ext_resource type="Texture2D" uid="uid://bi1jybo8giewp" path="res://Assets/Ground068_1K-JPG/Ground068_1K-JPG_NormalDX.jpg" id="6_bvt00"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u52ul"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -20,10 +18,16 @@ sky = SubResource("Sky_vonw3")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_81xng"]
+load_path = "res://.godot/imported/Ground068_1K-JPG_Color.jpg-9dc040749769649edaaa99f4cf4ffc59.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wqkje"]
+load_path = "res://.godot/imported/Ground068_1K-JPG_NormalDX.jpg-4d81c067b915b9e44acab1a853daba90.ctex"
+
 [sub_resource type="Resource" id="Resource_8c0lf"]
 script = ExtResource("4_0f350")
 mode = 0
-textures = [[ExtResource("5_754fn")], [ExtResource("6_bvt00")]]
+textures = [[SubResource("CompressedTexture2D_81xng")], [SubResource("CompressedTexture2D_wqkje")]]
 
 [node name="Level" type="Node3D" unique_id=1201701383]
 
@@ -54,5 +58,5 @@ cast_shadow = 1
 shader_params/u_ground_uv_scale = 20
 shader_params/u_depth_blending = true
 shader_params/u_triplanar = null
-shader_params/u_tile_reduction = null
+shader_params/u_tile_reduction = Vector4(1, 1, 1, 1)
 metadata/_custom_type_script = "uid://conq45miu7ofl"
