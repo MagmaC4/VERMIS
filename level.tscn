@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cjac2qou54wgu"]
+
+[ext_resource type="PackedScene" uid="uid://dw3ey2v4jdy1t" path="res://player.tscn" id="1_u52ul"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vonw3"]
+size = Vector3(19.845352, 0.001, 20.040344)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_u52ul"]
+
+[node name="Level" type="Node3D" unique_id=1201701383]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=196320560]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1401056909]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09992218, 0, -0.09133911)
+shape = SubResource("BoxShape3D_vonw3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1384950839]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("PlaneMesh_u52ul")
+
+[node name="Player" parent="." unique_id=2030528846 instance=ExtResource("1_u52ul")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4211013, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=707386246]
+transform = Transform3D(0.50000006, -0.7071068, 0.5, -0.7071068, -7.3055475e-08, 0.70710677, -0.49999997, -0.7071068, -0.50000006, 17.722553, 11.295686, -14.8223915)
