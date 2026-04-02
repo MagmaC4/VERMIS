@@ -14,7 +14,7 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	# Camera rotates only when mouse is focused
 	if (Input.mouse_mode == Input.MOUSE_MODE_CAPTURED):
-		handle_camera_v2(delta)
+		handle_camera(delta)
 		
 # Override _input function to keep track of MouseMotion
 # event is a variable that records all InputEvents
@@ -28,17 +28,9 @@ func _input(event: InputEvent) -> void:
 		# Lock mouse to window
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
-# handle camera rotation with input map (Controller)
-func handle_camera_v1(delta):
-	# var look_input = Input.get_vector("move_backward", "move_forward", "move_right", "move_left")
-	var look_input = Input.get_vector("look_right", "look_left", "look_down", "look_up")
-	look_input = look_input * camera_sensitivity_controller * delta
-	rotation_degrees.x += look_input.x 
-	rotation_degrees.x = clampf(rotation_degrees.x, -90, 90)
-	rotation_degrees.y += look_input.y
 	
 # handle camera rotation with input event (Mouse)
-func handle_camera_v2(delta):
+func handle_camera(delta):
 	var look_input = (-1) * mouse_input
 	look_input = look_input  * camera_sensitivity_mouse * delta
 	# Rotate camera based on look_input vector
