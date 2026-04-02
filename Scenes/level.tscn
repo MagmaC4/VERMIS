@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://conq45miu7ofl" path="res://addons/zylann.hterrain/hterrain.gd" id="2_81xng"]
 [ext_resource type="Resource" uid="uid://dwokvmc00fsow" path="res://HTerrain/HTerrain_Data/data.hterrain" id="3_wqkje"]
 [ext_resource type="Script" uid="uid://bb1onxhbra1yc" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_0f350"]
+[ext_resource type="Texture2D" uid="uid://b2vtx022ff6cp" path="res://Assets/POV_gauntlet.png" id="5_wqkje"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u52ul"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -16,7 +17,6 @@ sky_material = SubResource("ProceduralSkyMaterial_u52ul")
 background_mode = 2
 sky = SubResource("Sky_vonw3")
 tonemap_mode = 2
-glow_enabled = true
 fog_enabled = true
 fog_light_energy = 0.8
 fog_sun_scatter = 0.3
@@ -64,3 +64,10 @@ shader_params/u_depth_blending = true
 shader_params/u_triplanar = null
 shader_params/u_tile_reduction = Vector4(1, 1, 1, 1)
 metadata/_custom_type_script = "uid://conq45miu7ofl"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=254399170]
+offset_right = 666.0
+offset_bottom = 375.0
+scale = Vector2(2.4, 2.4)
+texture = ExtResource("5_wqkje")
+flip_h = true
