@@ -23,10 +23,8 @@ fog_sun_scatter = 0.3
 fog_sky_affect = 0.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_81xng"]
-load_path = "res://.godot/imported/Ground068_1K-JPG_Color.jpg-9dc040749769649edaaa99f4cf4ffc59.s3tc.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wqkje"]
-load_path = "res://.godot/imported/Ground068_1K-JPG_NormalDX.jpg-4d81c067b915b9e44acab1a853daba90.ctex"
 
 [sub_resource type="Resource" id="Resource_8c0lf"]
 script = ExtResource("4_0f350")
