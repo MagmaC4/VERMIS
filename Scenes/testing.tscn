@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://p34qtxtr2j1f"]
+
+[ext_resource type="PackedScene" uid="uid://dw3ey2v4jdy1t" path="res://Scenes/player.tscn" id="1_4ppfb"]
+[ext_resource type="Script" uid="uid://conq45miu7ofl" path="res://addons/zylann.hterrain/hterrain.gd" id="2_8si1v"]
+[ext_resource type="Resource" uid="uid://dwokvmc00fsow" path="res://HTerrain/HTerrain_Data/data.hterrain" id="3_vdlfs"]
+[ext_resource type="Script" uid="uid://bb1onxhbra1yc" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_irbir"]
+
+[sub_resource type="Resource" id="Resource_a06pk"]
+script = ExtResource("4_irbir")
+mode = 0
+textures = [[], []]
+
+[node name="Testing" type="Node3D" unique_id=1763188831]
+
+[node name="Player" parent="." unique_id=2030528846 instance=ExtResource("1_4ppfb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3095717, 0)
+
+[node name="HTerrain" type="Node3D" parent="." unique_id=214283362]
+script = ExtResource("2_8si1v")
+centered = true
+_terrain_data = ExtResource("3_vdlfs")
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource("Resource_a06pk")
+render_layers = 1
+cast_shadow = 1
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = null
+shader_params/u_tile_reduction = null
+metadata/_custom_type_script = "uid://conq45miu7ofl"
