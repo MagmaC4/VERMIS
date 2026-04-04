@@ -4,7 +4,9 @@
 [ext_resource type="Script" uid="uid://conq45miu7ofl" path="res://addons/zylann.hterrain/hterrain.gd" id="2_81xng"]
 [ext_resource type="Resource" uid="uid://dwokvmc00fsow" path="res://HTerrain/HTerrain_Data/data.hterrain" id="3_wqkje"]
 [ext_resource type="Script" uid="uid://bb1onxhbra1yc" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_0f350"]
+[ext_resource type="Texture2D" uid="uid://b440r3svjdvfx" path="res://HTerrain/HTerrain_Textures/level_slot0_albedo_bump.png" id="5_8c0lf"]
 [ext_resource type="Texture2D" uid="uid://b2vtx022ff6cp" path="res://Assets/POV_gauntlet.png" id="5_wqkje"]
+[ext_resource type="Texture2D" uid="uid://b7gc4woyg66r3" path="res://HTerrain/HTerrain_Textures/level_slot0_normal_roughness.png" id="6_754fn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u52ul"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -22,14 +24,10 @@ fog_light_energy = 0.8
 fog_sun_scatter = 0.3
 fog_sky_affect = 0.0
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_81xng"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wqkje"]
-
 [sub_resource type="Resource" id="Resource_8c0lf"]
 script = ExtResource("4_0f350")
 mode = 0
-textures = [[SubResource("CompressedTexture2D_81xng")], [SubResource("CompressedTexture2D_wqkje")]]
+textures = [[ExtResource("5_8c0lf")], [ExtResource("6_754fn")]]
 
 [node name="Level" type="Node3D" unique_id=1201701383]
 
