@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b2vtx022ff6cp" path="res://Assets/POV_gauntlet.png" id="5_wqkje"]
 [ext_resource type="Texture2D" uid="uid://b7gc4woyg66r3" path="res://HTerrain/HTerrain_Textures/level_slot0_normal_roughness.png" id="6_754fn"]
 [ext_resource type="PackedScene" uid="uid://ck80477a341xl" path="res://Scenes/enemy.tscn" id="8_754fn"]
+[ext_resource type="PackedScene" uid="uid://drk7tou447vek" path="res://Scenes/tree_4.tscn" id="9_bvt00"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u52ul"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -73,3 +74,6 @@ flip_h = true
 
 [node name="Enemy" parent="." unique_id=2118506224 instance=ExtResource("8_754fn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.0523677, 1.4001184, -3.165849)
+
+[node name="tree_4" parent="." unique_id=1070841287 instance=ExtResource("9_bvt00")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.008892, 0.43167305, 3.028028)

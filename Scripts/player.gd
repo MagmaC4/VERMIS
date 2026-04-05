@@ -7,7 +7,7 @@ var dev_mode_enabled : bool = false
 var DEV_MODE_SPEED := 25.0
 var is_crouching : bool = false
 var is_sliding : bool = false
-var slide_accel = 5000
+var slide_accel = 1000
 
 # Auxillary
 @onready var camera : Camera3D = $Camera3D
