@@ -5,11 +5,13 @@ var SPEED = 5.0
 var JUMP_VELOCITY = 4.5
 var dev_mode_enabled : bool = false
 var DEV_MODE_SPEED := 25.0
-var is_sliding : bool
+var is_crouching : bool = false
+var is_sliding : bool = false
 var slide_accel = 5000
 
 # Auxillary
 @onready var camera : Camera3D = $Camera3D
+@onready var weapon_camera : Camera3D = $Camera3D/SubViewportContainer/SubViewport/Camera3D
 @onready var anim_player : AnimationPlayer = $AnimationPlayer
 @onready var weapon_hitbox : Area3D = $Camera3D/WeaponPivot/Sword/Hitbox
 
@@ -24,9 +26,8 @@ func _physics_process(delta: float) -> void:
 	handle_slide(delta)
 
 func _process(delta):
+	handle_viewport()
 	toggle_dev_mode()
-	
-	# Player Attack
 	handle_weapon(delta)
 
 # ATTACK ======================================================================
@@ -45,9 +46,11 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 func handle_crouch():
 	if Input.is_action_just_pressed("crouch"):
 		anim_player.play("crouch_start")
+		is_crouching = true
 		
 	if Input.is_action_just_released("crouch"):
 		anim_player.play("crouch_end")
+		is_crouching = false
 
 func handle_slide(delta):
 	var floor_normal : Vector3 = get_floor_normal()
@@ -61,13 +64,8 @@ func handle_slide(delta):
 		var diff = slope_dir * slide_accel * delta
 		diff.z *= 2 # double gravity 
 		velocity += diff # apply slope slide to player velocity
-		
-		
 	else:
 		is_sliding = false
-
-		
-	
 
 
 func handle_movement_dev_mode(delta):
@@ -94,13 +92,18 @@ func handle_movement(delta):
 	direction = direction.normalized() # normalize direction
 	
 	# Handle sprint multiplier
-	var sprint_speed = 1
+	var sprint_multiplier = 1
 	if (Input.is_action_pressed("sprint")):
-		sprint_speed = 1.5
+		sprint_multiplier = 1.5
+	
+	var crouch_multiplier = 1
+	if (is_crouching and !is_sliding):
+		crouch_multiplier = 0.5
+		sprint_multiplier = 1
 	
 	if direction:
-		velocity.x = direction.x * SPEED * sprint_speed
-		velocity.z = direction.z * SPEED * sprint_speed
+		velocity.x = direction.x * SPEED * sprint_multiplier * crouch_multiplier
+		velocity.z = direction.z * SPEED * sprint_multiplier * crouch_multiplier
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
@@ -112,3 +115,7 @@ func handle_movement(delta):
 func toggle_dev_mode():
 	if Input.is_action_just_pressed("toggle_dev_mode"):
 		dev_mode_enabled = !dev_mode_enabled
+		
+func handle_viewport():
+	weapon_camera.get_viewport().size = camera.get_viewport().size
+	weapon_camera.global_transform = camera.global_transform

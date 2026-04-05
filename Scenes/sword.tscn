@@ -49,6 +49,7 @@ size = Vector3(0.37161255, 2.377533, 0.12963867)
 [node name="Sword1" type="Node3D" unique_id=1958280804]
 
 [node name="Cube" type="MeshInstance3D" parent="." unique_id=640564850]
+layers = 2
 mesh = SubResource("ArrayMesh_brc8g")
 
 [node name="Hitbox" type="Area3D" parent="." unique_id=976226593 groups=["Weapon"]]
