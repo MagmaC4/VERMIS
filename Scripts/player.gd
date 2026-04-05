@@ -19,7 +19,8 @@ func _physics_process(delta: float) -> void:
 		handle_movement_dev_mode(delta)
 	else:
 		handle_movement(delta)
-	
+		
+	handle_crouch()
 	handle_slide(delta)
 
 func _process(delta):
@@ -41,6 +42,13 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 
 # MOVEMENT ====================================================================
+func handle_crouch():
+	if Input.is_action_just_pressed("crouch"):
+		anim_player.play("crouch_start")
+		
+	if Input.is_action_just_released("crouch"):
+		anim_player.play("crouch_end")
+
 func handle_slide(delta):
 	var floor_normal : Vector3 = get_floor_normal()
 	var gravity : Vector3 = Vector3.DOWN
@@ -48,17 +56,12 @@ func handle_slide(delta):
 	var slope_angle = rad_to_deg(acos(floor_normal.dot(Vector3.UP)))
 	
 	# ONLY APPLY SLIDE WHEN PLAYER IS ON GROUND AND ON STEEP SLOPE
-	if Input.is_action_pressed("slide") and is_on_floor() and slope_angle > 10: 
+	if Input.is_action_pressed("crouch") and is_on_floor() and slope_angle > 10: 
 		is_sliding = true
 		var diff = slope_dir * slide_accel * delta
 		diff.z *= 2 # double gravity 
 		velocity += diff # apply slope slide to player velocity
 		
-		if (Input.is_action_just_pressed("slide")):
-			anim_player.play("cam_slide_start")
-		
-	elif Input.is_action_just_released("slide"):
-		anim_player.play("cam_slide_end")
 		
 	else:
 		is_sliding = false

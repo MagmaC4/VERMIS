@@ -58,7 +58,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_x3wgy"]
-resource_name = "cam_slide_end"
+resource_name = "crouch_end"
 length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -74,7 +74,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_3smsa"]
-resource_name = "cam_slide_start"
+resource_name = "crouch_start"
 length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -173,8 +173,8 @@ tracks/2/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fkybt"]
 _data = {
 &"RESET": SubResource("Animation_6t5aa"),
-&"cam_slide_end": SubResource("Animation_x3wgy"),
-&"cam_slide_start": SubResource("Animation_3smsa"),
+&"crouch_end": SubResource("Animation_x3wgy"),
+&"crouch_start": SubResource("Animation_3smsa"),
 &"weapon_attack": SubResource("Animation_fkybt"),
 &"weapon_idle": SubResource("Animation_vgqql")
 }
