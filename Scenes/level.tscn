@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b440r3svjdvfx" path="res://HTerrain/HTerrain_Textures/level_slot0_albedo_bump.png" id="5_8c0lf"]
 [ext_resource type="Texture2D" uid="uid://b2vtx022ff6cp" path="res://Assets/POV_gauntlet.png" id="5_wqkje"]
 [ext_resource type="Texture2D" uid="uid://b7gc4woyg66r3" path="res://HTerrain/HTerrain_Textures/level_slot0_normal_roughness.png" id="6_754fn"]
-[ext_resource type="PackedScene" uid="uid://cvoj32gcoyyw1" path="res://Scenes/enemy.tscn" id="8_754fn"]
+[ext_resource type="PackedScene" uid="uid://ck80477a341xl" path="res://Scenes/enemy.tscn" id="8_754fn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u52ul"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
