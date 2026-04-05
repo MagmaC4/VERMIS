@@ -133,7 +133,7 @@ _data = {
 &"weapon_idle": SubResource("Animation_vgqql")
 }
 
-[node name="Player" type="CharacterBody3D" unique_id=2030528846]
+[node name="Player" type="CharacterBody3D" unique_id=2030528846 groups=["Player"]]
 script = ExtResource("1_4flbx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1576049172]
@@ -144,9 +144,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4995103, 0)
 script = ExtResource("2_onrkg")
 
 [node name="WeaponPivot" type="Node3D" parent="Camera3D" unique_id=186371035]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
 
 [node name="Sword" parent="Camera3D/WeaponPivot" unique_id=1958791571 instance=ExtResource("3_6t5aa")]
-transform = Transform3D(0.04261609, 0.21637127, -0.9753804, 0.47291824, 0.8556014, 0.2104629, 0.8800752, -0.47024435, -0.06586351, 1.3243617, -1.3746947, -1.2976524)
+transform = Transform3D(0.042616084, 0.21637124, -0.9753804, 0.47291812, 0.85560125, 0.2104629, 0.880075, -0.4702443, -0.06586351, 1.3243617, -1.3746947, -1.2976524)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1609861803]
 libraries/ = SubResource("AnimationLibrary_fkybt")

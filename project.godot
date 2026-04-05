@@ -15,14 +15,15 @@ run/main_scene="uid://cjac2qou54wgu"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://Assets/icon.svg"
 
-[display]
-
-window/size/viewport_width=1600
-window/size/viewport_height=900
-
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/zylann.hterrain/plugin.cfg")
+
+[global_group]
+
+Enemy=""
+Player=""
+Weapon=""
 
 [input]
 

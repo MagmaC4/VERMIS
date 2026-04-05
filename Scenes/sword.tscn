@@ -7,7 +7,7 @@ size = Vector3(0.37161255, 2.377533, 0.12963867)
 
 [node name="Sword" unique_id=1958791571 instance=ExtResource("1_goa0h")]
 
-[node name="Hitbox" type="Area3D" parent="Cube" parent_id_path=PackedInt32Array(1906987366) index="0" unique_id=1944955558]
+[node name="Hitbox" type="Area3D" parent="Cube" parent_id_path=PackedInt32Array(1906987366) index="0" unique_id=1944955558 groups=["Weapon"]]
 monitoring = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/Hitbox" index="0" unique_id=1459784282]
