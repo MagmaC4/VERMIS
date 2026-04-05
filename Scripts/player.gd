@@ -5,7 +5,7 @@ var SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 @onready var camera : Camera3D = $Camera3D
 @onready var anim_player : AnimationPlayer = $AnimationPlayer
-@onready var weapon_hitbox : Area3D = $Camera3D/WeaponPivot/Sword/Cube/Hitbox
+@onready var weapon_hitbox : Area3D = $Camera3D/WeaponPivot/Sword/Hitbox
 
 func _physics_process(delta: float) -> void:		
 	# Player movement

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cfaq5lnmi7uxq" path="res://Scripts/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://dxw7tbvox7tqm" path="res://Scripts/camera_3d.gd" id="2_onrkg"]
-[ext_resource type="PackedScene" uid="uid://b6h8qhu32c62m" path="res://Scenes/sword.tscn" id="3_6t5aa"]
+[ext_resource type="PackedScene" uid="uid://b8ngushvc4jce" path="res://Scenes/sword.tscn" id="3_6t5aa"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i3pqv"]
 
@@ -146,8 +146,8 @@ script = ExtResource("2_onrkg")
 [node name="WeaponPivot" type="Node3D" parent="Camera3D" unique_id=186371035]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
 
-[node name="Sword" parent="Camera3D/WeaponPivot" unique_id=1958791571 instance=ExtResource("3_6t5aa")]
-transform = Transform3D(0.042616084, 0.21637124, -0.9753804, 0.47291812, 0.85560125, 0.2104629, 0.880075, -0.4702443, -0.06586351, 1.3243617, -1.3746947, -1.2976524)
+[node name="Sword" parent="Camera3D/WeaponPivot" unique_id=1958280804 instance=ExtResource("3_6t5aa")]
+transform = Transform3D(0.042616084, 0.21637127, -0.9753806, 0.47291815, 0.8556014, 0.21046294, 0.88007504, -0.47024435, -0.06586353, 1.3243617, -1.3746947, -1.2976524)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1609861803]
 libraries/ = SubResource("AnimationLibrary_fkybt")
