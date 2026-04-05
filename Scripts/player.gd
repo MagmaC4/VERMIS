@@ -4,11 +4,21 @@ extends CharacterBody3D
 var SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 @onready var camera : Camera3D = $Camera3D
+@onready var anim_player : AnimationPlayer = $AnimationPlayer
 
 
 func _physics_process(delta: float) -> void:		
 	# Player movement
 	handle_movement(delta)
+	handle_weapon(delta)
+	
+func handle_weapon(delta : float) -> void:
+	if Input.is_action_just_pressed("attack"):
+		anim_player.play("weapon_attack")
+		
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "weapon_attack":
+		anim_player.play("weapon_idle")
 	
 func handle_movement(delta):
 	# Add the gravity.

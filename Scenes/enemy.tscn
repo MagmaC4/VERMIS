@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cvoj32gcoyyw1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ne65n"]
+albedo_color = Color(1, 0, 0, 1)
+metallic_specular = 1.0
+roughness = 0.5
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_hghv2"]
+material = SubResource("StandardMaterial3D_ne65n")
+
+[node name="Enemy" type="Node3D" unique_id=2118506224]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1956987114]
+mesh = SubResource("CapsuleMesh_hghv2")

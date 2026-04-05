@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b6h8qhu32c62m"]
+
+[ext_resource type="PackedScene" uid="uid://bmgcb5yd3pbgh" path="res://Assets/sword.glb" id="1_goa0h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6wdhb"]
+size = Vector3(0.37161255, 2.377533, 0.12963867)
+
+[node name="Sword" unique_id=1958791571 instance=ExtResource("1_goa0h")]
+
+[node name="Hitbox" type="Area3D" parent="Cube" parent_id_path=PackedInt32Array(1906987366) index="0" unique_id=1944955558]
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/Hitbox" index="0" unique_id=1459784282]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0031280518, 1.9264984, -0.005004883)
+shape = SubResource("BoxShape3D_6wdhb")
