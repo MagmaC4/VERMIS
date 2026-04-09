@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://dxw7tbvox7tqm" path="res://Scripts/camera_3d.gd" id="2_onrkg"]
 [ext_resource type="PackedScene" uid="uid://b8ngushvc4jce" path="res://Scenes/sword.tscn" id="3_6t5aa"]
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6t5aa"]
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i3pqv"]
 
 [sub_resource type="Animation" id="Animation_6t5aa"]
@@ -181,6 +183,9 @@ _data = {
 
 [node name="Player" type="CharacterBody3D" unique_id=2030528846 groups=["Player"]]
 script = ExtResource("1_4flbx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=116823563]
+mesh = SubResource("CapsuleMesh_6t5aa")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1576049172]
 shape = SubResource("CapsuleShape3D_i3pqv")

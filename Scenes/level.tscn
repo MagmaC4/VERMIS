@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dw3ey2v4jdy1t" path="res://Scenes/player.tscn" id="1_tumq0"]
 [ext_resource type="Script" uid="uid://conq45miu7ofl" path="res://addons/zylann.hterrain/hterrain.gd" id="2_81xng"]
+[ext_resource type="AudioStream" uid="uid://x5jsyr4ifevt" path="res://Assets/Audio/birds_chirping_long.mp3" id="2_oqgf2"]
 [ext_resource type="Resource" uid="uid://dwokvmc00fsow" path="res://HTerrain/HTerrain_Data/data.hterrain" id="3_wqkje"]
 [ext_resource type="Script" uid="uid://bb1onxhbra1yc" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_0f350"]
 [ext_resource type="Texture2D" uid="uid://b440r3svjdvfx" path="res://HTerrain/HTerrain_Textures/level_slot0_albedo_bump.png" id="5_8c0lf"]
@@ -41,10 +42,48 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 layers = 3
 shadow_enabled = true
 
-[node name="Player" parent="." unique_id=2030528846 instance=ExtResource("1_tumq0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4211013, 0)
+[node name="UI" type="Control" parent="." unique_id=534407742]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="HTerrain" type="Node3D" parent="." unique_id=1514882170]
+[node name="FakeHUD" type="TextureRect" parent="UI" unique_id=254399170]
+visible = false
+layout_mode = 0
+offset_right = 666.0
+offset_bottom = 375.0
+scale = Vector2(2.4, 2.4)
+texture = ExtResource("5_wqkje")
+flip_h = true
+
+[node name="AudioManager" type="Node3D" parent="." unique_id=1104749795]
+
+[node name="Wind_Background" type="AudioStreamPlayer3D" parent="AudioManager" unique_id=1931550014]
+stream = ExtResource("2_oqgf2")
+autoplay = true
+parameters/looping = true
+
+[node name="Wind_Gusts" type="AudioStreamPlayer3D" parent="AudioManager" unique_id=2115801699]
+
+[node name="Enviroment" type="Node3D" parent="." unique_id=1710537132]
+
+[node name="tree_4" parent="Enviroment" unique_id=1070841287 instance=ExtResource("9_bvt00")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.008892, 0.43167305, 3.028028)
+
+[node name="tree_5" parent="Enviroment" unique_id=1608155841 instance=ExtResource("9_bvt00")]
+transform = Transform3D(0.38745388, 0, 0.8930429, 0, 0.9734712, 0, -0.8930429, 0, 0.38745388, 3.9783287, -2.627121, 16.811138)
+
+[node name="tree_6" parent="Enviroment" unique_id=1968519465 instance=ExtResource("9_bvt00")]
+transform = Transform3D(0.7607573, 0, 0.6490366, -0.009016658, 0.9999035, 0.010568724, -0.648974, -0.013892376, 0.7606839, -6.5577526, -0.0962944, 13.125348)
+
+[node name="tree_7" parent="Enviroment" unique_id=920432850 instance=ExtResource("9_bvt00")]
+transform = Transform3D(0.89605457, 0, 0.7644648, -0.01062023, 1.1777319, 0.012448324, -0.76439106, -0.016363071, 0.8959681, 20.86168, -0.0962944, 9.428664)
+
+[node name="tree_8" parent="Enviroment" unique_id=34185322 instance=ExtResource("9_bvt00")]
+transform = Transform3D(0.60012674, 0.0072102416, -0.17016329, -0.0056248307, 0.6237664, 0.0065930504, 0.17022306, -0.0048082704, 0.60013384, 25.97911, -0.0962944, -10.946155)
+
+[node name="HTerrain" type="Node3D" parent="Enviroment" unique_id=1514882170]
 script = ExtResource("2_81xng")
 centered = true
 _terrain_data = ExtResource("3_wqkje")
@@ -64,16 +103,8 @@ shader_params/u_triplanar = null
 shader_params/u_tile_reduction = Vector4(1, 1, 1, 1)
 metadata/_custom_type_script = "uid://conq45miu7ofl"
 
-[node name="FakeHUD" type="TextureRect" parent="." unique_id=254399170]
-visible = false
-offset_right = 666.0
-offset_bottom = 375.0
-scale = Vector2(2.4, 2.4)
-texture = ExtResource("5_wqkje")
-flip_h = true
-
-[node name="Enemy" parent="." unique_id=2118506224 instance=ExtResource("8_754fn")]
+[node name="Enemy" parent="Enviroment" unique_id=2118506224 instance=ExtResource("8_754fn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.0523677, 1.4001184, -3.165849)
 
-[node name="tree_4" parent="." unique_id=1070841287 instance=ExtResource("9_bvt00")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.008892, 0.43167305, 3.028028)
+[node name="Player" parent="Enviroment" unique_id=2030528846 instance=ExtResource("1_tumq0")]
+transform = Transform3D(-0.044961948, 0, 0.9989887, 0, 1, 0, -0.9989887, 0, -0.044961948, 3.3895445, 1.4211009, -0.7057934)

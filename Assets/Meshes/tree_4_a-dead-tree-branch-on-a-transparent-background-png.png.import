@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ws5nam6atuy0"
-path.s3tc="res://.godot/imported/tree_4_Bark014_1K-JPG_Color.jpg-880af6894c381a26be23035bafdf727b.s3tc.ctex"
+uid="uid://c8u74alymere6"
+path.s3tc="res://.godot/imported/tree_4_a-dead-tree-branch-on-a-transparent-background-png.png-78ee978edceb6fa0727a6577def3d0f0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "98266e557aa60df8eb75684b4cf80e64"
+"md5": "e221212c2ab7459533ea0683c8458ee9"
 }
 
 [deps]
 
-source_file="res://Assets/tree_4_Bark014_1K-JPG_Color.jpg"
-dest_files=["res://.godot/imported/tree_4_Bark014_1K-JPG_Color.jpg-880af6894c381a26be23035bafdf727b.s3tc.ctex"]
+source_file="res://Assets/Meshes/tree_4_a-dead-tree-branch-on-a-transparent-background-png.png"
+dest_files=["res://.godot/imported/tree_4_a-dead-tree-branch-on-a-transparent-background-png.png-78ee978edceb6fa0727a6577def3d0f0.s3tc.ctex"]
 
 [params]
 
