@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b440r3svjdvfx" path="res://HTerrain/HTerrain_Textures/level_slot0_albedo_bump.png" id="5_8c0lf"]
 [ext_resource type="Texture2D" uid="uid://b2vtx022ff6cp" path="res://Assets/POV_gauntlet.png" id="5_wqkje"]
 [ext_resource type="Texture2D" uid="uid://b7gc4woyg66r3" path="res://HTerrain/HTerrain_Textures/level_slot0_normal_roughness.png" id="6_754fn"]
-[ext_resource type="PackedScene" uid="uid://ck80477a341xl" path="res://Scenes/enemy.tscn" id="8_754fn"]
+[ext_resource type="PackedScene" uid="uid://cvoj32gcoyyw1" path="res://Scenes/enemy.tscn" id="8_754fn"]
 [ext_resource type="PackedScene" uid="uid://drk7tou447vek" path="res://Scenes/tree_4.tscn" id="9_bvt00"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u52ul"]
@@ -70,18 +70,6 @@ parameters/looping = true
 
 [node name="tree_4" parent="Enviroment" unique_id=1070841287 instance=ExtResource("9_bvt00")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.008892, 0.43167305, 3.028028)
-
-[node name="tree_5" parent="Enviroment" unique_id=1608155841 instance=ExtResource("9_bvt00")]
-transform = Transform3D(0.38745388, 0, 0.8930429, 0, 0.9734712, 0, -0.8930429, 0, 0.38745388, 3.9783287, -2.627121, 16.811138)
-
-[node name="tree_6" parent="Enviroment" unique_id=1968519465 instance=ExtResource("9_bvt00")]
-transform = Transform3D(0.7607573, 0, 0.6490366, -0.009016658, 0.9999035, 0.010568724, -0.648974, -0.013892376, 0.7606839, -6.5577526, -0.0962944, 13.125348)
-
-[node name="tree_7" parent="Enviroment" unique_id=920432850 instance=ExtResource("9_bvt00")]
-transform = Transform3D(0.89605457, 0, 0.7644648, -0.01062023, 1.1777319, 0.012448324, -0.76439106, -0.016363071, 0.8959681, 20.86168, -0.0962944, 9.428664)
-
-[node name="tree_8" parent="Enviroment" unique_id=34185322 instance=ExtResource("9_bvt00")]
-transform = Transform3D(0.60012674, 0.0072102416, -0.17016329, -0.0056248307, 0.6237664, 0.0065930504, 0.17022306, -0.0048082704, 0.60013384, 25.97911, -0.0962944, -10.946155)
 
 [node name="HTerrain" type="Node3D" parent="Enviroment" unique_id=1514882170]
 script = ExtResource("2_81xng")
