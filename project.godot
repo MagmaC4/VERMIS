@@ -13,12 +13,7 @@ config_version=5
 config/name="VERMIS"
 run/main_scene="uid://cjac2qou54wgu"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://Assets/icon.svg"
-
-[display]
-
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+config/icon="res://Assets/Sprites/icon.svg"
 
 [editor_plugins]
 

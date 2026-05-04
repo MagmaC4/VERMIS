@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/birds_chirping_long.mp3-b093c22b4e7b1555b2897
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4
