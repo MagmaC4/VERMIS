@@ -8,8 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://b440r3svjdvfx" path="res://HTerrain/HTerrain_Textures/level_slot0_albedo_bump.png" id="5_8c0lf"]
 [ext_resource type="Texture2D" uid="uid://b2vtx022ff6cp" path="res://Assets/Sprites/POV_gauntlet.png" id="5_wqkje"]
 [ext_resource type="Texture2D" uid="uid://b7gc4woyg66r3" path="res://HTerrain/HTerrain_Textures/level_slot0_normal_roughness.png" id="6_754fn"]
-[ext_resource type="PackedScene" uid="uid://ck80477a341xl" path="res://Scenes/enemy.tscn" id="8_754fn"]
+[ext_resource type="PackedScene" uid="uid://cvoj32gcoyyw1" path="res://Scenes/enemy.tscn" id="8_754fn"]
 [ext_resource type="PackedScene" uid="uid://drk7tou447vek" path="res://Scenes/tree_4.tscn" id="9_bvt00"]
+[ext_resource type="Script" uid="uid://8tfvfkqulwrv" path="res://Scripts/portal.gd" id="11_qxfql"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u52ul"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -31,6 +32,19 @@ fog_sky_affect = 0.0
 script = ExtResource("4_0f350")
 mode = 0
 textures = [[ExtResource("5_8c0lf")], [ExtResource("6_754fn")]]
+
+[sub_resource type="BoxMesh" id="BoxMesh_oqgf2"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qxfql"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qxfql"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ha31o"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_pa6b8"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [node name="Level" type="Node3D" unique_id=1201701383]
 
@@ -68,9 +82,6 @@ parameters/looping = true
 
 [node name="Enviroment" type="Node3D" parent="." unique_id=1710537132]
 
-[node name="tree_4" parent="Enviroment" unique_id=1070841287 instance=ExtResource("9_bvt00")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.008892, 0.43167305, 3.028028)
-
 [node name="HTerrain" type="Node3D" parent="Enviroment" unique_id=1514882170]
 script = ExtResource("2_81xng")
 centered = true
@@ -91,8 +102,48 @@ shader_params/u_triplanar = null
 shader_params/u_tile_reduction = Vector4(1, 1, 1, 1)
 metadata/_custom_type_script = "uid://conq45miu7ofl"
 
-[node name="Enemy" parent="Enviroment" unique_id=2118506224 instance=ExtResource("8_754fn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.0523677, 1.4001184, -3.165849)
+[node name="Tree" parent="Enviroment" unique_id=1070841287 instance=ExtResource("9_bvt00")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.008892, 0.43167305, 3.028028)
 
 [node name="Player" parent="Enviroment" unique_id=2030528846 instance=ExtResource("1_tumq0")]
 transform = Transform3D(-0.044961948, 0, 0.9989887, 0, 1, 0, -0.9989887, 0, -0.044961948, 3.3895445, 1.4211009, -0.7057934)
+
+[node name="Enemy" parent="Enviroment" unique_id=2118506224 instance=ExtResource("8_754fn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.0523677, 1.4001184, -3.165849)
+
+[node name="Cabin" type="MeshInstance3D" parent="Enviroment" unique_id=517701435]
+transform = Transform3D(-8.940145, 0, 3.0007548, 0, 6.1763306, 0, -3.938786, 0, -6.811027, -3.5265167, 4.51287, 20.915997)
+mesh = SubResource("BoxMesh_oqgf2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Enviroment/Cabin" unique_id=1433693148]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enviroment/Cabin/StaticBody3D" unique_id=673330684]
+shape = SubResource("ConcavePolygonShape3D_qxfql")
+
+[node name="Portal1" type="MeshInstance3D" parent="Enviroment" unique_id=596332271 node_paths=PackedStringArray("linked_portal")]
+transform = Transform3D(0.01, 0, 0, 0, 2, 0, 0, 0, 1, -8.533461, 1.5934374, 2.8781667)
+mesh = SubResource("BoxMesh_qxfql")
+script = ExtResource("11_qxfql")
+linked_portal = NodePath("../Portal2")
+
+[node name="Area3D" type="Area3D" parent="Enviroment/Portal1" unique_id=915255220]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enviroment/Portal1/Area3D" unique_id=467664051]
+shape = SubResource("ConcavePolygonShape3D_ha31o")
+
+[node name="Portal2" type="MeshInstance3D" parent="Enviroment" unique_id=1259426506 node_paths=PackedStringArray("linked_portal")]
+transform = Transform3D(-0.0068726493, 0, 0.7264068, 0, 2, 0, -0.0072640684, 0, -0.687265, -12.183189, 1.5934379, -3.570717)
+mesh = SubResource("BoxMesh_qxfql")
+script = ExtResource("11_qxfql")
+linked_portal = NodePath("../Portal1")
+
+[node name="Area3D" type="Area3D" parent="Enviroment/Portal2" unique_id=1581568661]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enviroment/Portal2/Area3D" unique_id=2141079743]
+transform = Transform3D(1, 0, 0, 0, 1, 0, -2.3283064e-10, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_pa6b8")
+
+[connection signal="body_entered" from="Enviroment/Portal1/Area3D" to="Enviroment/Portal1" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Enviroment/Portal1/Area3D" to="Enviroment/Portal1" method="_on_area_3d_body_exited"]
+[connection signal="body_entered" from="Enviroment/Portal2/Area3D" to="Enviroment/Portal2" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Enviroment/Portal2/Area3D" to="Enviroment/Portal2" method="_on_area_3d_body_exited"]
