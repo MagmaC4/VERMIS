@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cvoj32gcoyyw1" path="res://Scenes/enemy.tscn" id="8_754fn"]
 [ext_resource type="PackedScene" uid="uid://drk7tou447vek" path="res://Scenes/tree_4.tscn" id="9_bvt00"]
 [ext_resource type="Script" uid="uid://8tfvfkqulwrv" path="res://Scripts/portal.gd" id="11_qxfql"]
+[ext_resource type="Script" uid="uid://w15infv6cpns" path="res://Scenes/viewport_test.gd" id="12_ha31o"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u52ul"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -45,6 +46,17 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_pa6b8"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_qxfql"]
+viewport_path = NodePath("Enviroment/Screen1/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ha31o"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_qxfql")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pa6b8"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_ha31o")
 
 [node name="Level" type="Node3D" unique_id=1201701383]
 
@@ -142,6 +154,33 @@ linked_portal = NodePath("../Portal1")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Enviroment/Portal2/Area3D" unique_id=2141079743]
 transform = Transform3D(1, 0, 0, 0, 1, 0, -2.3283064e-10, 0, 1, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_pa6b8")
+
+[node name="Screen1" type="Node3D" parent="Enviroment" unique_id=117443927 node_paths=PackedStringArray("player", "other_screen")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.615893, 5.017013, 7.336468)
+script = ExtResource("12_ha31o")
+player = NodePath("../Player")
+other_screen = NodePath("../Screen2")
+
+[node name="SubViewport" type="SubViewport" parent="Enviroment/Screen1" unique_id=2005410638]
+size = Vector2i(1024, 1024)
+
+[node name="Camera3D" type="Camera3D" parent="Enviroment/Screen1/SubViewport" unique_id=1153784085]
+
+[node name="Plane" type="MeshInstance3D" parent="Enviroment/Screen1" unique_id=1546748626]
+transform = Transform3D(-2, 3.019916e-07, -1.3200472e-14, 0, -8.742278e-08, -2, -3.019916e-07, -2, 8.742278e-08, -0.07820606, -2.6617467, 0.38093042)
+mesh = SubResource("PlaneMesh_pa6b8")
+
+[node name="Screen2" type="Node3D" parent="Enviroment" unique_id=1369403677]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.0250354, 5.833046, 12.720456)
+
+[node name="SubViewport2" type="SubViewport" parent="Enviroment/Screen2" unique_id=627665379]
+size = Vector2i(1024, 1024)
+
+[node name="Camera3D" type="Camera3D" parent="Enviroment/Screen2/SubViewport2" unique_id=1371849361]
+
+[node name="Plane" type="MeshInstance3D" parent="Enviroment/Screen2" unique_id=1000082913]
+transform = Transform3D(-2, 3.019916e-07, -1.3200472e-14, 0, -8.742278e-08, -2, -3.019916e-07, -2, 8.742278e-08, -1.8085141e-14, -2.740075, 1.197725e-07)
+mesh = SubResource("PlaneMesh_pa6b8")
 
 [connection signal="body_entered" from="Enviroment/Portal1/Area3D" to="Enviroment/Portal1" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Enviroment/Portal1/Area3D" to="Enviroment/Portal1" method="_on_area_3d_body_exited"]
